@@ -2,6 +2,7 @@ package com.vences.restservices.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends RepresentationModel<User> {
     @Id
     @GeneratedValue
     private Long orderId;
