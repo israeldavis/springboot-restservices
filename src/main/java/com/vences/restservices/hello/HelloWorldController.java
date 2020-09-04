@@ -1,12 +1,17 @@
 package com.vences.restservices.hello;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Locale;
 
 @RestController
 public class HelloWorldController {
+
+    @Autowired
+    ResourceBundleMessageSource messageSource;
 
     //Simple Method
     //Get
@@ -21,4 +26,15 @@ public class HelloWorldController {
     public UserDetails helloWorldBean() {
         return new UserDetails("Lucas", "Manuel", "Cancun");
     }
+
+    @GetMapping("/hello-int")
+    public String getMessagesInI18NFormat(@RequestHeader(name = "Accept-Language", required = false) String locale) {
+        return messageSource.getMessage("label.hello", null, new Locale(locale));
+    }
+
+    @GetMapping("/hello-int2")
+    public String getMessagesInI18NFormat2(@RequestHeader(name = "Accept-Language", required = false) String locale) {
+        return messageSource.getMessage("label.hello", null, LocaleContextHolder.getLocale());
+    }
+
 }
