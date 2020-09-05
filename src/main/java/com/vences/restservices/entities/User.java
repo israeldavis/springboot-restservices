@@ -1,5 +1,6 @@
 package com.vences.restservices.entities;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "user")
-@JsonIgnoreProperties({"firstname", "lastname"})
+//@JsonIgnoreProperties({"firstname", "lastname"})---- Static Filtering @JSONIgnore
+@JsonFilter( value = "userFilter")
 public class User extends RepresentationModel<User> {
 
     @Id
