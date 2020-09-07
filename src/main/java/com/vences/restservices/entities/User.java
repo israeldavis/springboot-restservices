@@ -59,4 +59,7 @@ public class User extends RepresentationModel<User> {
     @JsonView(Views.Internal.class)
     private List<Order> orders;
 
+    @Column(name="ADDRESS")
+    private String address;
+
 }
