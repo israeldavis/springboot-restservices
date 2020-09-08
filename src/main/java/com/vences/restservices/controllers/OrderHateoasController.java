@@ -6,7 +6,7 @@ import com.vences.restservices.exceptions.UserNotFoundException;
 import com.vences.restservices.repositories.OrderRepository;
 import com.vences.restservices.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.CollectionModel;
+//import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,7 @@ public class OrderHateoasController {
     @Autowired
     private OrderRepository orderRepository;
 
-    @GetMapping("/{userid}/orders")
+    /*@GetMapping("/{userid}/orders")
     public CollectionModel<Order> getAllOrders(@PathVariable Long userid) throws UserNotFoundException {
 
         Optional<User> userOptional = userRepository.findById(userid);
@@ -35,5 +35,5 @@ public class OrderHateoasController {
         List<Order> allOrders =  userOptional.get().getOrders();
         CollectionModel<Order> finalResources = new CollectionModel<Order>(allOrders);
         return finalResources;
-    }
+    }*/
 }

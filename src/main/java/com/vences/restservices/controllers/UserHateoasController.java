@@ -6,11 +6,11 @@ import com.vences.restservices.exceptions.UserNotFoundException;
 import com.vences.restservices.repositories.UserRepository;
 import com.vences.restservices.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.CollectionModel;
+/*import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;*/
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class UserHateoasController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
+    /*@GetMapping
     public CollectionModel<User> getAllUsers() throws UserNotFoundException {
         List<User> users =  userService.getAllUsers();
         for (User user : users ) {
@@ -56,9 +56,9 @@ public class UserHateoasController {
 
         CollectionModel<User> finalResources = new CollectionModel<User>(users, selflinkGetAllUsers);
         return finalResources;
-    }
+    }*/
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public EntityModel<User> getUserById(@PathVariable("id") @Min(1) Long id) {
         try {
             Optional<User> userOptional = userService.getUserById(id);
@@ -73,7 +73,7 @@ public class UserHateoasController {
         } catch (UserNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
-    }
+    }*/
 
 
 }
